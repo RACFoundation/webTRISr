@@ -1,5 +1,5 @@
 # webTRISr
-
+[![Build Status](https://travis-ci.org/departmentfortransport/webTRISr.svg?branch=master)](https://travis-ci.org/departmentfortransport/webTRISr)
 A R package for the WebTRIS Traffic Flow API, from Highways England.
 
 Feedback and contirubtions welcome - please raise and issue or pull request.
