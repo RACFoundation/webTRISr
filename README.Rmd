@@ -1,0 +1,84 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE, message=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+
+require(webTRISr)
+require(pixiedust)
+require(magrittr)
+
+```
+
+# webTRISr
+
+A R package for the WebTRIS Traffic Flow API, from Highways England. 
+
+Feedback and contirubtions welcome - please raise and issue or pull request. 
+
+
+## Installation 
+
+```{r, eval=FALSE}
+install.packages('devtools')
+devtools::install_github('departmentfortransport/webTRISr')
+```
+
+## Examples
+### Reports
+Reports can be downloaded, as data frames, using `webtris_report()`
+```{r, eval=FALSE}
+webtris_report(sites=c('7', '24'), 
+               start_date = '01012017', end_date = '01022017', 
+               report_type = 'monthly-summary')
+```
+
+
+Note the data is cut here for easy printing, more variables are returned by the api. 
+```{r, echo=FALSE}
+x <- webtris_report(sites=c('7', '24'), 
+               start_date = '01012017', end_date = '01022017', 
+               report_type = 'monthly-summary') 
+
+x[,1:6] %>% dust() %>%
+  sprinkle(cols=1, halign = "left") %>%
+  sprinkle_print_method("markdown")
+```
+
+
+
+All reports currently provided by the API are availble by changing the `report_type` argument. At present these options are: "daily", "annual-totals", "annual-monthly", "monthly-summary", "monthly-daily", "monthly-daily-aggregate", and "monthly-hourly-aggregate". 
+
+### Areas
+
+```{r, eval=FALSE}
+webtris_areas()
+```
+
+```{r, eval=TRUE, echo=FALSE}
+head(webtris_areas()) %>% dust() %>%
+  sprinkle(cols=1, halign = "left") %>%
+  sprinkle_print_method("markdown")
+```
+
+
+### Sites
+```{r, eval=FALSE}
+webtris_sites()
+```
+
+```{r, echo=FALSE}
+head(webtris_sites())%>% dust() %>%
+  sprinkle(cols=1, halign = "left") %>%
+  sprinkle_print_method("markdown")
+```
+
