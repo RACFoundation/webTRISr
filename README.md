@@ -1,8 +1,10 @@
 # webTRISr
+
 [![Build Status](https://travis-ci.org/departmentfortransport/webTRISr.svg?branch=master)](https://travis-ci.org/departmentfortransport/webTRISr)
+
 A R package for the WebTRIS Traffic Flow API, from Highways England.
 
-Feedback and contirubtions welcome - please raise and issue or pull request.
+Feedback and contributions welcome - please raise and issue or pull request.
 
 
 ## Installation
@@ -24,28 +26,18 @@ webtris_report(sites=c('7', '24'),
 ```
 
 
-Note the data is cut here for easy printing, more variables are returned by the api.
-
 ```
 #> Fetched page 1 of approximately 10000 rows
 ```
 
 
 
-| Month         | SiteId | ADT24Hour | ADT24HourLargeVehiclesPercentage | AWT24Hour | AWT24HourLargeVehiclesPercentage |
-| :------------ | :----- | :-------- | -------------------------------: | :-------- | -------------------------------: |
-| January 2017  | 7      | 1671      |                             11.1 | 1938      |                             12.3 |
-| February 2017 | 7      | 1852      |                             11.8 | 2119      |                             13.1 |
-| January 2017  | 24     | 37132     |                             14.4 | 39949     |                             16.7 |
-| February 2017 | 24     | 40529     |                             14.2 | 42703     |                             16.6 |
-
-
-
-
-
-
-
-
+| Month         | SiteId | ADT24Hour | ADT24HourLargeVehiclesPercentage | AWT24Hour | AWT24HourLargeVehiclesPercentage | ADT18Hour | ADT18HourLargeVehiclesPercentage | AWT18Hour | AWT18HourLargeVehiclesPercentage | ADT16Hour | ADT16HourLargeVehiclesPercentage | AWT16Hour | AWT16HourLargeVehiclesPercentage | ADT12Hour | ADT12HourLargeVehiclesPercentage | AWT12Hour | AWT12HourLargeVehiclesPercentage |
+| :------------ | :----- | :-------- | -------------------------------: | :-------- | -------------------------------: | :-------- | -------------------------------: | :-------- | -------------------------------: | :-------- | -------------------------------: | :-------- | -------------------------------: | :-------- | -------------------------------: | :-------- | -------------------------------: |
+| January 2017  | 7      | 1671      |                             11.1 | 1938      |                             12.3 | 1623      |                             10.4 | 1883      |                             11.5 | 1601      |                             10.4 | 1860      |                             11.5 | 1454      |                             10.2 | 1686      |                             11.4 |
+| February 2017 | 7      | 1852      |                             11.8 | 2119      |                             13.1 | 1800      |                               11 | 2060      |                             12.4 | 1773      |                               11 | 2031      |                             12.4 | 1615      |                               11 | 1846      |                             12.5 |
+| January 2017  | 24     | 37132     |                             14.4 | 39949     |                             16.7 | 35542     |                             13.1 | 38199     |                             15.3 | 34427     |                             12.9 | 37085     |                             15.1 | 29073     |                             12.9 | 31366     |                             15.2 |
+| February 2017 | 24     | 40529     |                             14.2 | 42703     |                             16.6 | 38807     |                             12.9 | 40825     |                             15.3 | 37562     |                             12.8 | 39595     |                             15.2 | 31535     |                             12.8 | 33112     |                             15.3 |
 
 All reports currently provided by the API are availble by changing the `report_type` argument. At present these options are: "daily", "annual-totals", "annual-monthly", "monthly-summary", "monthly-daily", "monthly-daily-aggregate", and "monthly-hourly-aggregate".
 
@@ -69,10 +61,6 @@ webtris_areas()
 
 
 
-
-
-
-
 ### Sites
 
 ```r
@@ -88,3 +76,21 @@ webtris_sites()
 | 4    | MIDAS site at M3/2173A priority 1 on link 103009101; GPS Ref: 442770;118058; Westbound | M3/2173A    | -1.3923737 | 50.9603586 | Active   |
 | 5    | MIDAS site at M25/5764B priority 1 on link 199056702; GPS Ref: 558308;188775; Anti-clockwise | M25/5764B   |  0.2831616 | 51.5756168 | Active   |
 | 6    | MIDAS site at M27/9273A priority 1 on link 103009302; GPS Ref: 448516;111110; Eastbound | M27/9273A   | -1.3114861 | 50.8974292 | Active   |
+
+
+
+
+### Quality
+
+```r
+webtris_quality(siteID = '2', start_date = '01012017', end_date = '01022017')
+```
+
+| Date       | Quality |
+| :--------- | :------ |
+| 1483228800 | 100     |
+| 1483315200 | 100     |
+| 1483401600 | 100     |
+| 1483488000 | 100     |
+| 1483574400 | 100     |
+| 1483660800 | 100     |

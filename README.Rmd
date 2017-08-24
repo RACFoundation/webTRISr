@@ -19,12 +19,14 @@ require(magrittr)
 
 # webTRISr
 
-A R package for the WebTRIS Traffic Flow API, from Highways England. 
+[![Build Status](https://travis-ci.org/departmentfortransport/webTRISr.svg?branch=master)](https://travis-ci.org/departmentfortransport/webTRISr)
 
-Feedback and contirubtions welcome - please raise and issue or pull request. 
+A R package for the WebTRIS Traffic Flow API, from Highways England.
+
+Feedback and contributions welcome - please raise and issue or pull request.
 
 
-## Installation 
+## Installation
 
 ```{r, eval=FALSE}
 install.packages('devtools')
@@ -35,26 +37,24 @@ devtools::install_github('departmentfortransport/webTRISr')
 ### Reports
 Reports can be downloaded, as data frames, using `webtris_report()`
 ```{r, eval=FALSE}
-webtris_report(sites=c('7', '24'), 
-               start_date = '01012017', end_date = '01022017', 
+webtris_report(sites=c('7', '24'),
+               start_date = '01012017', end_date = '01022017',
                report_type = 'monthly-summary')
 ```
 
-
-Note the data is cut here for easy printing, more variables are returned by the api. 
 ```{r, echo=FALSE}
-x <- webtris_report(sites=c('7', '24'), 
-               start_date = '01012017', end_date = '01022017', 
-               report_type = 'monthly-summary') 
+x <- webtris_report(sites=c('7', '24'),
+               start_date = '01012017', end_date = '01022017',
+               report_type = 'monthly-summary')
 
-x[,1:6] %>% dust() %>%
+x[] %>% dust() %>%
   sprinkle(cols=1, halign = "left") %>%
   sprinkle_print_method("markdown")
 ```
 
 
 
-All reports currently provided by the API are availble by changing the `report_type` argument. At present these options are: "daily", "annual-totals", "annual-monthly", "monthly-summary", "monthly-daily", "monthly-daily-aggregate", and "monthly-hourly-aggregate". 
+All reports currently provided by the API are availble by changing the `report_type` argument. At present these options are: "daily", "annual-totals", "annual-monthly", "monthly-summary", "monthly-daily", "monthly-daily-aggregate", and "monthly-hourly-aggregate".
 
 ### Areas
 
@@ -80,3 +80,15 @@ head(webtris_sites())%>% dust() %>%
   sprinkle_print_method("markdown")
 ```
 
+
+### Quality
+```{r, eval=FALSE}
+webtris_quality(siteID = '2', start_date = '01012017', end_date = '01022017')
+```
+
+```{r, echo=FALSE}
+head(webtris_quality(siteID = '2', start_date = '01012017', end_date = '01022017')
+)%>% dust() %>%
+  sprinkle(cols=1, halign = "left") %>%
+  sprinkle_print_method("markdown")
+```
