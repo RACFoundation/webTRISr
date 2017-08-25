@@ -1,11 +1,13 @@
 Package: webTRISr
 Type: Package
-Title: A Wrapper Around WebTRIS Traffic Flow API from Highways England
+Title: A Wrapper Around 'WebTRIS' Traffic Flow API from Highways England
 Version: 0.1.0
-Authors@R: as.person("Will Bowditch <will.bowditch@dft.gsi.gov.uk> [aut,cre]")
-Description: Provide helper functions to query data from the WebTRIS Traffic Flow API (from Highways England)
-    into tidy data frames.
-License: GPL-3 + file LICENSE
+Authors@R: person("Will", "Bowditch", , "will.bowditch@dft.gsi.gov.uk", role = c("aut", "cre"))
+Description: Provide helper functions to query data from the 'WebTRIS' Traffic Flow API (from Highways England) into tidy data frames.
+    The api documentation is available here: <http://webtris.highwaysengland.co.uk/api/swagger/ui/index>.
+URL: https://github.com/departmentfortransport/webTRISr
+BugReports: https://github.com/departmentfortransport/webTRISr/issues
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

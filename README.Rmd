@@ -24,7 +24,7 @@ require(magrittr)
 
 A R package for the WebTRIS Traffic Flow API, from Highways England.
 
-Feedback and contributions welcome - please raise and issue or pull request.
+Feedback and contributions welcome - please raise an issue or pull request.
 
 
 ## Installation
