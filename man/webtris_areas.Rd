@@ -9,6 +9,9 @@ webtris_areas(areaID)
 \arguments{
 \item{areaID}{area ID. If none provided then returns all.}
 }
+\value{
+data.frame
+}
 \description{
 Retruns areas from WEBTRIS API
 }

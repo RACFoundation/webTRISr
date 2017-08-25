@@ -23,8 +23,11 @@ webtris_report(sites, start_date, end_date, report_type, maxrequest = 10000,
 \item{return_raw}{Return a raw httr response rather than a data frame}
 }
 \value{
-a dataframe or httr object
+a dataframe (default) or httr object (if return_raw=TRUE)
 }
 \description{
 webtris_report
+}
+\examples{
+webtris_report(sites=c("7"), start_date="01-01-2017", end_date="01-03-2017", report_type ='daily')
 }

@@ -15,6 +15,12 @@ webtris_quality(siteID, start_date, end_date, daily = TRUE)
 
 \item{daily}{TRUE or FALSE. If FALSE returns overall. Use FALSE when list of siteIDs.}
 }
+\value{
+data.frame
+}
 \description{
 Quality
+}
+\examples{
+webtris_quality('7', start_date='01012017', end_date='01022017', daily=TRUE)
 }

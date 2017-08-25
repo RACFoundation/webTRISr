@@ -4,7 +4,7 @@
 #'
 #' @param areaID area ID. If none provided then returns all.
 #'
-#' @return
+#' @return data.frame
 #' @export
 #'
 #' @examples webtris_areas()
@@ -26,11 +26,12 @@ webtris_areas <- function(areaID) {
 #'
 #' @param siteID Numeric site ID. Blank will return all sites.
 #'
-#' @return
+#' @return dataframe of sites.
 #' @export
 #'
-#' @examples webtris_sites()
-#' @example webtris_sites('3')
+#' @examples
+#' webtris_sites()
+#' webtris_sites('3')
 webtris_sites <- function(siteID) {
     if (methods::hasArg(siteID)) {
         target_api <- stringr::str_interp("api/v1/sites/${siteID}")
@@ -52,10 +53,11 @@ webtris_sites <- function(siteID) {
 #' @param end_date either a string in the format ddmmyy or a Date (lubridate)
 #' @param daily TRUE or FALSE. If FALSE returns overall. Use FALSE when list of siteIDs.
 #'
-#' @return
+#' @return data.frame
 #' @export
 #'
 #' @examples
+#' webtris_quality('7', start_date='01012017', end_date='01022017', daily=TRUE)
 webtris_quality <- function(siteID, start_date, end_date, daily = TRUE) {
     if (daily == TRUE) {
         target_api <- "api/v1/quality/daily"

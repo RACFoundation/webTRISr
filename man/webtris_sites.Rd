@@ -9,9 +9,13 @@ webtris_sites(siteID)
 \arguments{
 \item{siteID}{Numeric site ID. Blank will return all sites.}
 }
+\value{
+dataframe of sites.
+}
 \description{
 Sites
 }
 \examples{
 webtris_sites()
+webtris_sites('3')
 }
