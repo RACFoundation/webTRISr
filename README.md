@@ -10,6 +10,12 @@ Feedback and contributions welcome - please raise an issue or pull request.
 
 ## Installation
 
+```r
+install.packages('webTRISr')
+```
+
+or
+
 
 ```r
 install.packages('devtools')
