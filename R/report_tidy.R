@@ -4,7 +4,7 @@
 #' @param start_date in format 'DDMMYYYY' or as a Date object
 #' @param end_date in format 'DDMMYYYY' or as a Date object
 #' @param report_type options are: "daily", "annual-totals", "annual-monthly", "monthly-summary", "monthly-daily", "monthly-daily-aggregate", "monthly-hourly-aggregate"
-#' @param maxrequest Maximum number of rows to return per requiest (optional)
+#' @param maxrequest Maximum number of rows to return per request (optional)
 #' @param verbose Prints the API call
 #' @param return_raw Return a raw httr response rather than a data frame
 #'

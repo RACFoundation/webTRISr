@@ -16,7 +16,7 @@ webtris_report(sites, start_date, end_date, report_type, maxrequest = 10000,
 
 \item{report_type}{options are: "daily", "annual-totals", "annual-monthly", "monthly-summary", "monthly-daily", "monthly-daily-aggregate", "monthly-hourly-aggregate"}
 
-\item{maxrequest}{Maximum number of rows to return per requiest (optional)}
+\item{maxrequest}{Maximum number of rows to return per request (optional)}
 
 \item{verbose}{Prints the API call}
 

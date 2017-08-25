@@ -7,7 +7,7 @@
 annual_totals_parser(response)
 }
 \arguments{
-\item{response}{a httr reponses}
+\item{response}{a httr response}
 }
 \value{
 parsed response from httr

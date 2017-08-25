@@ -13,7 +13,7 @@ webtris_areas(areaID)
 data.frame
 }
 \description{
-Retruns areas from WEBTRIS API
+Returns areas from WEBTRIS API
 }
 \examples{
 webtris_areas()

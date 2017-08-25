@@ -6,7 +6,7 @@ daily_parser <- function(response) {
 
 #' Annual total parser
 #'
-#' @param response a httr reponses
+#' @param response a httr response
 #'
 #' @return parsed response from httr
 #' @importFrom magrittr %>%

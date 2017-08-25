@@ -1,6 +1,6 @@
 #' Areas
 #'
-#' Retruns areas from WEBTRIS API
+#' Returns areas from WEBTRIS API
 #'
 #' @param areaID area ID. If none provided then returns all.
 #'
@@ -97,5 +97,3 @@ webtris_quality <- function(siteID, start_date, end_date, daily = TRUE) {
 
     return(df)
 }
-
-
