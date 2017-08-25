@@ -21,3 +21,65 @@ test_that("This report should have 576 rows", {
         10000)
     expect_length(x[[1]], 576)
 })
+
+
+test_that("Report annual-totals works", {
+  x <- webtris_report(sites  = c("7", "26"),
+                      start_date = "01-01-2017",
+                      lubridate::dmy("07-01-2017"),
+                      report_type = 'monthly-daily')
+
+  expect_is(x, class = "data.frame")
+  expect_true(length(x)>1)
+})
+
+
+test_that("Report annual-monthly works", {
+  x <- webtris_report(sites  = c("7", "26"),
+                      start_date = "01-01-2017",
+                      lubridate::dmy("07-01-2017"),
+                      report_type = 'annual-monthly')
+
+  expect_is(x, class = "data.frame")
+  expect_true(length(x)>1)
+})
+
+test_that("Report monthly-summary works", {
+  x <- webtris_report(sites  = c("7", "26"),
+                      start_date = "01-01-2017",
+                      lubridate::dmy("07-01-2017"),
+                      report_type = 'monthly-summary')
+
+  expect_is(x, class = "data.frame")
+  expect_true(length(x)>1)
+})
+
+test_that("Report monthly-daily works", {
+  x <- webtris_report(sites  = c("7", "26"),
+                      start_date = "01-01-2017",
+                      lubridate::dmy("07-01-2017"),
+                      report_type = 'monthly-daily')
+
+  expect_is(x, class = "data.frame")
+  expect_true(length(x)>1)
+})
+
+test_that("Report monthly-daily-aggregate works", {
+  x <- webtris_report(sites  = c("7", "26"),
+                      start_date = "01-01-2017",
+                      lubridate::dmy("07-01-2017"),
+                      report_type = 'monthly-daily-aggregate')
+
+  expect_is(x, class = "data.frame")
+  expect_true(length(x)>1)
+})
+
+test_that("Report monthly-hourly-aggregate works", {
+  x <- webtris_report(sites  = c("7", "26"),
+                      start_date = "01-01-2017",
+                      lubridate::dmy("07-01-2017"),
+                      report_type = 'monthly-hourly-aggregate')
+
+  expect_is(x, class = "data.frame")
+  expect_true(length(x)>1)
+})

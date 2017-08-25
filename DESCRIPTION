@@ -1,6 +1,6 @@
 Package: webTRISr
 Type: Package
-Title: A wrapper around WebTRIS Traffic Flow API from Highways England
+Title: A Wrapper Around Webtris Traffic Flow API From Highways England
 Version: 0.1.0
 Authors@R: as.person("Will Bowditch <will.bowditch@dft.gsi.gov.uk> [aut,cre]")
 Description: Provide helper functions to query data from the WebTRIS Traffic Flow API (from Highways England)

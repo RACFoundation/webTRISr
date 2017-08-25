@@ -2,16 +2,16 @@
 % Please edit documentation in R/report_parsers.R
 \name{annual_totals_parser}
 \alias{annual_totals_parser}
-\title{Title}
+\title{Annual total parser}
 \usage{
 annual_totals_parser(response)
 }
 \arguments{
-\item{response}{}
+\item{response}{a httr reponses}
 }
 \value{
 parsed response from httr
 }
 \description{
-Title
+Annual total parser
 }

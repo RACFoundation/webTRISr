@@ -4,9 +4,9 @@ daily_parser <- function(response) {
 }
 
 
-#' Title
+#' Annual total parser
 #'
-#' @param response
+#' @param response a httr reponses
 #'
 #' @return parsed response from httr
 #' @importFrom magrittr %>%
@@ -58,7 +58,7 @@ monthly_summary_aggregation_parser <- function(response) {
 }
 
 monthly_daily_flow_parser <- function(response) {
-    pre_processed <- response %>% httr::content(., as = "text") %>% jsonlite::fromJSON() %>%
+    pre_processed <- response %>% httr::content(as = "text") %>% jsonlite::fromJSON() %>%
         purrr::pluck("MonthCollection") %>% dplyr::select(c("Month", "SiteId", "Days"))
 
 
@@ -80,7 +80,7 @@ monthly_daily_flow_parser <- function(response) {
 
 monthly_daily_aggregate_parser <- function(response) {
 
-    pre_processed <- response %>% httr::content(., as = "text") %>% jsonlite::fromJSON() %>%
+    pre_processed <- response %>% httr::content(as = "text") %>% jsonlite::fromJSON() %>%
         purrr::pluck("MonthCollection") %>% dplyr::select(c("Month", "SiteId", "Daily Aggregations"))
 
 
@@ -100,7 +100,7 @@ monthly_daily_aggregate_parser <- function(response) {
 }
 
 monthly_hourly_aggregate_parser <- function(response) {
-    pre_processed <- response %>% httr::content(., as = "text") %>% jsonlite::fromJSON() %>%
+    pre_processed <- response %>% httr::content(as = "text") %>% jsonlite::fromJSON() %>%
         purrr::pluck("MonthCollection") %>% dplyr::select(c("Month", "SiteId", "Hourly Aggregations"))
 
 
