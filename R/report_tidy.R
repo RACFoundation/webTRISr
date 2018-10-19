@@ -13,19 +13,25 @@
 #'
 #' @examples
 #' webtris_report(sites=c("7"), start_date="01-01-2017", end_date="01-03-2017", report_type ='daily')
-webtris_report <- function(sites, start_date, end_date, report_type, maxrequest = 10000,
-    verbose = FALSE, return_raw = FALSE) {
+webtris_report <- function(sites, start_date, end_date,
+                           report_type, maxrequest = 10000,
+                           verbose = FALSE, return_raw = FALSE) {
 
-    parsers <- list(daily = quote(daily_parser), `annual-totals` = quote(annual_totals_parser),
-        `annual-monthly` = quote(annual_monthly_parser), `monthly-summary` = quote(monthly_summary_aggregation_parser),
-        `monthly-daily` = quote(monthly_daily_flow_parser), `monthly-daily-aggregate` = quote(monthly_daily_aggregate_parser),
-        `monthly-hourly-aggregate` = quote(monthly_hourly_aggregate_parser))
+    parsers <- list(
+      daily = quote(daily_parser),
+      `annual-totals` = quote(annual_totals_parser),
+      `annual-monthly` = quote(annual_monthly_parser),
+      `monthly-summary` = quote(monthly_summary_aggregation_parser),
+      `monthly-daily` = quote(monthly_daily_flow_parser),
+      `monthly-daily-aggregate` = quote(monthly_daily_aggregate_parser),
+      `monthly-hourly-aggregate` = quote(monthly_hourly_aggregate_parser))
 
     report_to_fetch <- stringr::str_split(report_type, pattern = "-")[[1]][1]
     report_to_fetch <- stringr::str_to_title(report_to_fetch)
 
-    raw_data <- reportFetch(sites, start_date, end_date, report_type = report_to_fetch,
-        maxrequest, verbose)
+    raw_data <- reportFetch(
+      sites, start_date, end_date, report_type = report_to_fetch,
+      maxrequest, verbose)
 
     if (return_raw) {
         return(raw_data)

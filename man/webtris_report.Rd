@@ -4,8 +4,8 @@
 \alias{webtris_report}
 \title{webtris_report}
 \usage{
-webtris_report(sites, start_date, end_date, report_type, maxrequest = 10000,
-  verbose = FALSE, return_raw = FALSE)
+webtris_report(sites, start_date, end_date, report_type,
+  maxrequest = 10000, verbose = FALSE, return_raw = FALSE)
 }
 \arguments{
 \item{sites}{siteId(s) i.e. 7 or '7' or c('7','8', '9')}

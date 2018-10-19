@@ -21,6 +21,9 @@ data.frame
 \description{
 Quality
 }
+\note{
+The API returns incorrect quality values for aggregated queries, fix is implemented on the client side.
+}
 \examples{
 webtris_quality('7', start_date='01012017', end_date='01022017', daily=TRUE)
 }

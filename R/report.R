@@ -1,5 +1,5 @@
-reportAPI <- function(sites, start_date, end_date, report_type, maxrequest, currentpage,
-    verbose) {
+reportAPI <- function(sites, start_date, end_date, report_type, maxrequest,
+                      currentpage, verbose) {
 
     # Format dates
     start_date <- dateformatter(start_date)
@@ -7,7 +7,8 @@ reportAPI <- function(sites, start_date, end_date, report_type, maxrequest, curr
 
     sites <- paste0(sites, collapse = ",")
 
-    api_target <- stringr::str_c("api/v1/reports/", stringr::str_to_title(report_type))
+    api_target <- stringr::str_c("api/v1/reports/",
+                                 stringr::str_to_title(report_type))
 
     varlist <- list(sites = sites, start_date = start_date, end_date = end_date,
         page = currentpage, page_size = maxrequest)
@@ -15,17 +16,19 @@ reportAPI <- function(sites, start_date, end_date, report_type, maxrequest, curr
     return(api(verbose, path = api_target, query = varlist))
 }
 
-reportFetch <- function(sites, start_date, end_date, report_type, maxrequest, verbose) {
+reportFetch <- function(sites, start_date, end_date, report_type,
+                        maxrequest, verbose) {
     currentpage <- 1  #Always start on page 1
-    dataincomming = TRUE
+    dataincomming <- TRUE
     list_of_responses <- list()
 
     while (dataincomming) {
-        data <- reportAPI(sites, start_date, end_date, report_type, maxrequest, currentpage,
-            verbose)
+        data <- reportAPI(sites, start_date, end_date, report_type,
+                          maxrequest, currentpage, verbose)
 
         total <- currentpage * maxrequest
-        message(stringr::str_interp("Fetched page ${currentpage} of approximately ${total} rows"))
+        message(stringr::str_interp(
+          "Fetched page ${currentpage} of approximately ${total} rows"))
 
         list_of_responses[currentpage] <- list(data)
 
