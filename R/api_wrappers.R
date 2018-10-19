@@ -84,6 +84,14 @@ webtris_quality <- function(siteID, start_date, end_date, daily = TRUE) {
         out <- as.data.frame(out)
 
 
+        # correct for remote bug.
+        t1 <- as.Date(start_date, format="%d%m%Y")
+        t2 <- as.Date(end_date, format="%d%m%Y")
+        days <- as.numeric(1 + (t2 - t1))
+        cf <- (max(1, days - 1))/days
+        out$data_quality <- round(out$data_quality * cf)
+
+
     } else {
         path = target_api
         query = list(siteId = siteID, start_date = start_date, end_date = end_date)
