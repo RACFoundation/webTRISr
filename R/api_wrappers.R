@@ -48,6 +48,7 @@ webtris_sites <- function(siteID) {
 
 #' Quality
 #'
+#' @note The API returns incorrect quality values for aggregated queries, fix is implemented on the client side.
 #' @param siteID either a single site ID or a list c(1,2,3). Daily data doesn't support a list of sites.
 #' @param start_date either a string in the format ddmmyy or a Date (lubridate)
 #' @param end_date either a string in the format ddmmyy or a Date (lubridate)
@@ -74,19 +75,32 @@ webtris_quality <- function(siteID, start_date, end_date, daily = TRUE) {
         # Convert inputted site ids to comma separated
         siteID <- stringr::str_c(siteID, collapse = "%2C")
 
-        # Construct the path manually as httr:build_url() encodes siteID in an unexpected
-        # format
+        # Construct the path manually as httr:build_url() encodes siteID in an
+        # unexpected format
 
-        manual_path <- stringr::str_interp("${target_api}?sites=${siteID}&start_date=${start_date}&end_date=${end_date}")
+        manual_path <- stringr::str_interp(c(
+          "${target_api}?sites=${siteID}",
+          "&start_date=${start_date}",
+          "&end_date=${end_date}"))
 
 
         out <- parse_json(api(path = manual_path))
         out <- as.data.frame(out)
 
 
+        # correct for remote bug.
+        t1 <- as.Date(start_date, format="%d%m%Y")
+        t2 <- as.Date(end_date, format="%d%m%Y")
+        days <- as.numeric(1 + (t2 - t1))
+        cf <- (max(1, days - 1))/days
+        out$data_quality <- round(out$data_quality * cf)
+
+
     } else {
-        path = target_api
-        query = list(siteId = siteID, start_date = start_date, end_date = end_date)
+        path <- target_api
+        query <- list(siteId = siteID,
+                      start_date = start_date,
+                      end_date = end_date)
 
 
        out <- parse_json(api(path = path, query = query))$Qualities

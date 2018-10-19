@@ -8,7 +8,8 @@ api <- function(verbose = FALSE, ...) {
 }
 
 parse_json <- function(httrresp) {
-    jsonlite::fromJSON(txt = httr::content(httrresp, "text"), simplifyVector = TRUE)
+    jsonlite::fromJSON(txt = httr::content(httrresp, "text"),
+                       simplifyVector = TRUE)
 }
 
 
