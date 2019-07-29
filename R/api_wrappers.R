@@ -25,6 +25,8 @@ webtris_areas <- function(areaID) {
 #' Sites
 #'
 #' @param siteID Numeric site ID. Blank will return all sites.
+#' @param sf logic, return results as an sf object, defaults `FALSE`.
+#' @param crs Numeric, specify CRS, defaults to 4326
 #'
 #' @return dataframe of sites.
 #' @export
@@ -32,7 +34,8 @@ webtris_areas <- function(areaID) {
 #' @examples
 #' webtris_sites()
 #' webtris_sites('3')
-webtris_sites <- function(siteID) {
+#' webtris_sites('3', sf = TRUE)
+webtris_sites <- function(siteID, sf = FALSE, crs = 4326) {
     if (methods::hasArg(siteID)) {
         target_api <- stringr::str_interp("api/v1/sites/${siteID}")
     } else {
@@ -41,6 +44,11 @@ webtris_sites <- function(siteID) {
     df <- parse_json(api(path = target_api))$sites
 
     df <- suppressMessages(readr::type_convert(df))
+
+    if(sf) {
+        df <- sf::st_as_sf(df, coords = grep(pattern = "Long|Lat", names(df)),
+                       crs = crs)
+    }
 
     return(df)
 }

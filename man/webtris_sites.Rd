@@ -4,10 +4,14 @@
 \alias{webtris_sites}
 \title{Sites}
 \usage{
-webtris_sites(siteID)
+webtris_sites(siteID, sf = FALSE, crs = 4326)
 }
 \arguments{
 \item{siteID}{Numeric site ID. Blank will return all sites.}
+
+\item{sf}{logic, return results as an sf object, defaults `FALSE`.}
+
+\item{crs}{Numeric, specify CRS, defaults to 4326}
 }
 \value{
 dataframe of sites.
@@ -18,4 +22,5 @@ Sites
 \examples{
 webtris_sites()
 webtris_sites('3')
+webtris_sites('3', sf = TRUE)
 }

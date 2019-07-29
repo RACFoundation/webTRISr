@@ -10,10 +10,11 @@ BugReports: https://github.com/departmentfortransport/webTRISr/issues
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Suggests: testthat,
     devtools
-Imports: stringr,
+Imports: 
+    stringr,
     jsonlite,
     lubridate,
     magrittr,
@@ -21,4 +22,5 @@ Imports: stringr,
     purrr,
     dplyr,
     methods,
-    readr
+    readr,
+    sf
