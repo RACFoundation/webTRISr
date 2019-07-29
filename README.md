@@ -19,7 +19,7 @@ or
 
 ```r
 install.packages('devtools')
-devtools::install_github('departmentfortransport/webTRISr')
+devtools::install_github('RACFoundation/webTRISr')
 ```
 
 ## Examples
