@@ -1,8 +1,14 @@
 language: r
-apt_packages:
-  - libudunits2-dev
+cache: packages
+
+ addons:
+   apt:
+     packages:
+      - libudunits2-dev
+      
 r:
   - oldrel
   - release
   - devel
+
 warnings_are_errors: true
