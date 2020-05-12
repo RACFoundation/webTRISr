@@ -1,0 +1,28 @@
+Package: webTRISr
+Type: Package
+Title: A Wrapper Around 'WebTRIS' Traffic Flow API from Highways England
+Version: 0.2.0
+Authors@R: c(
+ person("Ivo", "Wengraf", email = "Ivo.Wengraf@RACFoundation.org", role = "cre"),
+ person("Will", "Bowditch", , "will.bowditch@dft.gov.uk", role = "aut"))
+Description: Provides functions to query data from the 'WebTRIS' Traffic Flow API (from Highways England) into tidy data frames.
+    The API documentation is available here: <http://webtris.highwaysengland.co.uk/api/swagger/ui/index>.
+URL: https://github.com/RACFoundation/webTRISr
+BugReports: https://github.com/RACFoundation/webTRISr/issues
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Suggests: testthat,
+    devtools
+Imports: 
+    stringr,
+    jsonlite,
+    lubridate,
+    magrittr,
+    httr,
+    purrr,
+    dplyr,
+    methods,
+    readr,
+    sf
